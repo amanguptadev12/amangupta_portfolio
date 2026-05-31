@@ -643,22 +643,34 @@ textarea.cf-input{resize:vertical;min-height:120px}
     <h2 class="contact-hl">Let's build<br>something <em>real</em></h2>
     <p class="contact-sub">Have a project, internship, or role in mind? I'd love to hear from you. Let's make something great.</p>
     <a href="mailto:amangupta7203@gmail.com" class="contact-email">amangupta7203@gmail.com</a>
-    <div class="cf-wrap">
+   <div class="cf-wrap">
   <form id="cf-form" action="https://formspree.io/f/meedwbdb" method="POST">
+
+    <!-- honeypot — invisible to humans, bots fill it, Formspree rejects it -->
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
     <div class="cf-group">
       <label class="cf-label" for="cf-name">Name</label>
-      <input class="cf-input" id="cf-name" name="name" type="text" placeholder="Your name" required>
+      <input class="cf-input" id="cf-name" name="name" type="text"
+        placeholder="Your name" maxlength="100" required>
     </div>
+
     <div class="cf-group">
       <label class="cf-label" for="cf-email">Email</label>
-      <input class="cf-input" id="cf-email" name="email" type="email" placeholder="your@email.com" required>
+      <input class="cf-input" id="cf-email" name="email" type="email"
+        placeholder="your@email.com" maxlength="150" required>
     </div>
+
     <div class="cf-group">
       <label class="cf-label" for="cf-msg">Message</label>
-      <textarea class="cf-input" id="cf-msg" name="message" placeholder="Tell me about your project or opportunity…" required></textarea>
+      <textarea class="cf-input" id="cf-msg" name="message"
+        placeholder="Tell me about your project or opportunity…"
+        maxlength="2000" required></textarea>
     </div>
+
     <button class="cf-btn" id="cf-btn" type="submit">Send Message →</button>
     <div class="cf-status" id="cf-status"></div>
+
   </form>
 </div>
     <div class="contact-links">
@@ -776,32 +788,82 @@ const themeToggle=document.getElementById('theme-toggle'),ttKnob=document.getEle
 function applyTheme(d){d?root.setAttribute('data-dark',''):root.removeAttribute('data-dark');ttKnob.textContent=d?'🌙':'☀️';}
 applyTheme(localStorage.getItem('theme')==='dark');
 themeToggle.addEventListener('click',()=>{const d=root.hasAttribute('data-dark');applyTheme(!d);localStorage.setItem('theme',d?'light':'dark');});
+let sending=false;
+
 document.getElementById('cf-form').addEventListener('submit',async function(e){
   e.preventDefault();
+  if(sending) return;
+
   const btn=document.getElementById('cf-btn');
   const status=document.getElementById('cf-status');
+  const name=document.getElementById('cf-name').value.trim();
+  const email=document.getElementById('cf-email').value.trim();
+  const msg=document.getElementById('cf-msg').value.trim();
 
+  if(!name||!email||!msg){
+    status.textContent='Please fill in all fields.';
+    status.className='cf-status err';
+    return;
+  }
+  if(name.length>100){
+    status.textContent='Name must be under 100 characters.';
+    status.className='cf-status err';
+    return;
+  }
+  if(email.length>150){
+    status.textContent='Email must be under 150 characters.';
+    status.className='cf-status err';
+    return;
+  }
+  if(msg.length>2000){
+    status.textContent='Message must be under 2000 characters.';
+    status.className='cf-status err';
+    return;
+  }
+
+  const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(!emailRegex.test(email)){
+    status.textContent='Please enter a valid email address.';
+    status.className='cf-status err';
+    return;
+  }
+
+  sending=true;
   btn.disabled=true;
   btn.textContent='Sending…';
   status.textContent='';
 
-  const res=await fetch(this.action,{
-    method:'POST',
-    body:new FormData(this),
-    headers:{'Accept':'application/json'}
-  });
-
-  if(res.ok){
-    status.textContent="Message sent! I'll get back to you soon.";
-    status.className='cf-status ok';
-    btn.textContent='Sent ✓';
-    this.reset();
-    setTimeout(()=>{btn.disabled=false;btn.textContent='Send Message →';},4000);
-  } else {
-    status.textContent='Something went wrong. Email me directly instead.';
+  try{
+    const res=await fetch(this.action,{
+      method:'POST',
+      body:new FormData(this),
+      headers:{'Accept':'application/json'}
+    });
+    if(res.ok){
+      status.textContent="Message sent! I'll get back to you soon.";
+      status.className='cf-status ok';
+      btn.textContent='Sent ✓';
+      this.reset();
+      setTimeout(()=>{
+        btn.disabled=false;
+        btn.textContent='Send Message →';
+        status.textContent='';
+        status.className='cf-status';
+      },4000);
+    } else {
+      const data=await res.json();
+      status.textContent=data?.errors?.[0]?.message||'Something went wrong. Email me directly instead.';
+      status.className='cf-status err';
+      btn.disabled=false;
+      btn.textContent='Send Message →';
+    }
+  } catch(err){
+    status.textContent='Network error. Please try again or email me directly.';
     status.className='cf-status err';
     btn.disabled=false;
     btn.textContent='Send Message →';
+  } finally{
+    sending=false;
   }
 });
 </script>
