@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DH4PJ8NLVC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DH4PJ8NLVC');
+</script>
+
+<title>Aman Gupta — Full-Stack Developer</title>
+<meta name="description"
+content="Aman Gupta is a Full-Stack Developer, IoT Builder, and AI Automation Enthusiast. Explore projects in web development, IoT systems, and intelligent automation." />
+
+<meta name="keywords"
+content="Aman Gupta, Full Stack Developer, IoT Developer, AI Automation, React Developer, Node.js Developer, Portfolio, SmartBin, EcoBin" />
+
+<meta name="author"
+content="Aman Gupta" />
+
+<meta name="robots"
+content="index, follow" />
+
+<meta property="og:type" content="website" />
+
+<meta property="og:title"
+content="Aman Gupta | Full-Stack Developer & IoT Builder" />
+
+<meta property="og:description"
+content="Portfolio showcasing Full-Stack, IoT, and AI Automation projects." />
+
+<meta property="og:url"
+content="https://amangdevportfolio.vercel.app/" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#f5f0e8;
+  --cream2:#ede8de;
+  --cream3:#e4ddd0;
+  --ink:#1a1612;
+  --ink2:#3d3730;
+  --ink3:#7a7068;
+  --ink4:#b0a898;
+  --rust:#c4521a;
+  --rust-bg:#fdf0ea;
+  --rust-border:#f0c8b0;
+  --border:#d8d0c4;
+  --border2:#c8bfb0;
+  --font-serif:'Playfair Display',Georgia,serif;
+  --font-sans:'Outfit',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--font-sans);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* grain */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
+
+/* ─ cursor ─ */
+#cur{width:9px;height:9px;background:var(--rust);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s,opacity .2s;mix-blend-mode:multiply}
+#cur.big{width:42px;height:42px;opacity:.5}
+
+/* ─ NAV ─ */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:22px 52px;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+nav.stuck{background:rgba(245,240,232,.92);backdrop-filter:blur(16px);border-bottom-color:var(--border)}
+.nav-name{font-family:var(--font-serif);font-size:17px;font-weight:700;color:var(--ink);text-decoration:none;letter-spacing:-.3px}
+.nav-name span{color:var(--rust)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:13px;color:var(--ink3);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-btn{background:var(--ink);color:var(--cream);padding:9px 22px;border-radius:100px;font-family:var(--font-sans);font-size:13px;font-weight:500;text-decoration:none;letter-spacing:.03em;transition:background .2s,transform .2s}
+.nav-btn:hover{background:var(--rust);transform:translateY(-1px)}
+
+/* ─ HERO ─ */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:140px 52px 80px;max-width:100%}
+.hero-inner{max-width:1140px;margin:0 auto;width:100%}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:100px;padding:6px 16px;font-size:12px;color:var(--ink3);margin-bottom:40px;letter-spacing:.04em}
+.dot{width:7px;height:7px;background:var(--rust);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+.hero-quote{font-family:var(--font-serif);font-size:clamp(13px,1.5vw,17px);font-style:italic;color:var(--ink3);margin-bottom:20px;letter-spacing:.01em}
+.hero-title{font-family:var(--font-serif);font-size:clamp(50px,8vw,112px);font-weight:900;line-height:.92;letter-spacing:-.04em;margin-bottom:40px}
+.hero-title .muted{color:var(--ink4)}
+.hero-title .italic{font-style:italic;color:var(--rust)}
+.hero-row{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-top:52px}
+.hero-desc{max-width:400px;color:var(--ink3);font-size:15px;font-weight:300;line-height:1.8}
+.hero-desc a{color:var(--rust);text-decoration:none;border-bottom:1px solid var(--rust-border)}
+.hero-stats{display:flex;gap:44px}
+.stat-n{font-family:var(--font-serif);font-size:38px;font-weight:900;line-height:1;color:var(--ink)}
+.stat-l{font-size:12px;color:var(--ink3);margin-top:4px;letter-spacing:.03em}
+
+/* skills ribbon */
+.ribbon{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--cream2);padding:16px 0;overflow:hidden}
+.ribbon-track{display:flex;animation:slide 28s linear infinite;width:max-content}
+.ribbon-item{white-space:nowrap;font-family:var(--font-serif);font-size:13px;font-weight:700;font-style:italic;color:var(--ink3);padding:0 36px;display:flex;align-items:center;gap:14px}
+.ribbon-item .sep{color:var(--rust);font-style:normal;font-size:16px}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─ shared ─ */
+.section{padding:100px 52px;max-width:1140px;margin:0 auto}
+.sec-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.sec-label::before{content:'';width:22px;height:1px;background:var(--rust)}
+.sec-title{font-family:var(--font-serif);font-size:clamp(34px,5vw,60px);font-weight:900;letter-spacing:-.03em;line-height:1.0;margin-bottom:52px}
+.divider{border:none;border-top:1px solid var(--border);max-width:1140px;margin:0 auto}
+
+/* ─ PROJECTS ─ */
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.proj-card{border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;transition:border-color .3s,box-shadow .3s,transform .3s;cursor:pointer;position:relative}
+.proj-card:hover{border-color:var(--border2);box-shadow:0 8px 40px rgba(26,22,18,.08);transform:translateY(-4px)}
+.proj-card.span2{grid-column:span 2}
+.proj-thumb{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:clamp(24px,4vw,52px);font-weight:900;letter-spacing:-.03em;position:relative;overflow:hidden}
+.proj-card.span2 .proj-thumb{aspect-ratio:21/9}
+.t-arohan{background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);color:#7dd3fc}
+.t-ecobin{background:linear-gradient(135deg,#134e4a,#065f46,#14532d);color:#86efac}
+.t-mail{background:linear-gradient(135deg,#2d1b69,#6d28d9,#4c1d95);color:#c4b5fd}
+.proj-badge{position:absolute;top:14px;left:14px;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border-radius:100px;padding:4px 12px;font-size:11px;color:rgba(255,255,255,.8);letter-spacing:.06em;text-transform:uppercase;font-family:var(--font-sans)}
+.proj-arrow{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;opacity:0;transition:opacity .2s}
+.proj-card:hover .proj-arrow{opacity:1}
+.proj-info{padding:20px 24px 22px;border-top:1px solid var(--border)}
+.proj-tag{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink4);margin-bottom:6px}
+.proj-name{font-family:var(--font-serif);font-size:18px;font-weight:700;color:var(--ink);letter-spacing:-.01em;margin-bottom:6px}
+.proj-desc{font-size:13px;color:var(--ink3);line-height:1.6;font-weight:300}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tech-pill{font-size:11px;border:1px solid var(--border);border-radius:100px;padding:3px 10px;color:var(--ink3);letter-spacing:.03em}
+.achievement{display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:var(--rust-bg);border:1px solid var(--rust-border);border-radius:100px;padding:4px 12px;font-size:12px;color:var(--rust);font-weight:500}
+
+/* ─ SKILLS / SERVICES ─ */
+.skills-wrap{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-top:-10px}
+.skill-box{background:var(--cream);padding:38px 36px;transition:background .25s}
+.skill-box:hover{background:var(--cream2)}
+.sk-num{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--ink4);margin-bottom:22px}
+.sk-icon{font-size:26px;margin-bottom:14px}
+.sk-name{font-family:var(--font-serif);font-size:20px;font-weight:700;letter-spacing:-.015em;margin-bottom:8px;color:var(--ink)}
+.sk-desc{font-size:13px;color:var(--ink3);font-weight:300;line-height:1.7}
+.sk-list{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
+.sk-tag{font-size:11px;border:1px solid var(--border2);border-radius:100px;padding:3px 10px;color:var(--ink3)}
+
+/* ─ ABOUT ─ (Ryan layout: two col) */
+.about-wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:72px;align-items:center}
+.about-img-col{position:relative}
+.about-photo{width:100%;aspect-ratio:3/4;border-radius:20px;background:var(--cream2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.photo-init{font-family:var(--font-serif);font-size:100px;font-weight:900;color:var(--border);user-select:none;line-height:1}
+.about-badge{position:absolute;bottom:-18px;right:-18px;background:var(--ink);color:var(--cream);border-radius:50%;width:96px;height:96px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:11px;text-align:center;line-height:1.4;font-weight:700;letter-spacing:.03em}
+.about-badge strong{font-size:24px;display:block}
+.about-txt .sec-title{font-size:40px;margin-bottom:20px}
+.about-bio{color:var(--ink3);font-weight:300;font-size:15px;line-height:1.85;margin-bottom:28px}
+.about-detail{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.adet{display:flex;gap:12px;font-size:14px;color:var(--ink3)}
+.adet strong{color:var(--ink);font-weight:500;min-width:70px}
+.ctabtn{display:inline-block;background:var(--rust);color:#fff;padding:12px 28px;border-radius:100px;font-size:14px;font-weight:500;text-decoration:none;letter-spacing:.03em;transition:opacity .2s,transform .2s}
+.ctabtn:hover{opacity:.88;transform:translateY(-1px)}
+
+/* ─ EXPERIENCE ─ (Stelvio list style) */
+.exp-list{list-style:none}
+.exp-row{display:grid;grid-template-columns:160px 1fr auto;gap:32px;align-items:start;padding:28px 0;border-bottom:1px solid var(--border);transition:background .2s}
+.exp-row:first-child{border-top:1px solid var(--border)}
+.exp-yr{font-size:13px;color:var(--ink4);padding-top:4px;letter-spacing:.02em}
+.exp-role{font-family:var(--font-serif);font-size:19px;font-weight:700;letter-spacing:-.015em;margin-bottom:3px}
+.exp-org{font-size:13px;color:var(--rust);font-weight:500;margin-bottom:8px}
+.exp-info{font-size:13px;color:var(--ink3);font-weight:300;line-height:1.65;max-width:520px}
+.exp-arrow{font-size:18px;color:var(--ink4);margin-top:4px;transition:color .2s,transform .2s}
+.exp-row:hover .exp-arrow{color:var(--rust);transform:translate(2px,-2px)}
+
+/* ─ FAQ ─ (Stelvio style) */
+.faq-list{list-style:none;margin-top:52px}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:22px 0;cursor:pointer;font-family:var(--font-serif);font-size:18px;font-weight:700;color:var(--ink);letter-spacing:-.01em;gap:16px;transition:color .2s}
+.faq-q:hover{color:var(--rust)}
+.faq-icon{font-size:22px;color:var(--ink3);transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:20px}
+.faq-a p{font-size:14px;color:var(--ink3);font-weight:300;line-height:1.8}
+
+/* ─ CONTACT ─ */
+#contact-sec{text-align:center;padding-top:100px;padding-bottom:100px}
+.contact-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:100px;padding:6px 18px;font-size:12px;color:var(--ink3);margin-bottom:28px;letter-spacing:.04em}
+.contact-hl{font-family:var(--font-serif);font-size:clamp(40px,6vw,88px);font-weight:900;letter-spacing:-.04em;line-height:.95;margin-bottom:22px}
+.contact-hl em{color:var(--rust);font-style:italic}
+.contact-sub{color:var(--ink3);font-size:16px;font-weight:300;max-width:420px;margin:0 auto 44px}
+.contact-email{font-family:var(--font-serif);font-size:21px;font-weight:700;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--rust);padding-bottom:3px;transition:color .2s}
+.contact-email:hover{color:var(--rust)}
+.contact-links{display:flex;justify-content:center;gap:14px;margin-top:44px;flex-wrap:wrap}
+.contact-link{border:1px solid var(--border);border-radius:100px;padding:10px 22px;font-size:13px;color:var(--ink3);text-decoration:none;letter-spacing:.04em;transition:border-color .2s,color .2s}
+.contact-link:hover{border-color:var(--rust);color:var(--rust)}
+
+/* ─ FOOTER ─ */
+footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify-content:space-between;align-items:center}
+.ft{font-size:12px;color:var(--ink4);letter-spacing:.03em}
+
+/* ─ reveal ─ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.on{opacity:1;transform:none}
+.reveal-d1{transition-delay:.1s}
+.reveal-d2{transition-delay:.2s}
+.reveal-d3{transition-delay:.3s}
+
+/* ─ mobile ─ */
+@media(max-width:860px){
+  nav{padding:18px 22px}
+  .nav-links{display:none}
+  #hero{padding:120px 22px 60px}
+  .section{padding:72px 22px}
+  .proj-grid{grid-template-columns:1fr}
+  .proj-card.span2{grid-column:span 1}
+  .proj-card.span2 .proj-thumb{aspect-ratio:16/9}
+  .skills-wrap{grid-template-columns:1fr}
+  .about-wrap{grid-template-columns:1fr;gap:40px}
+  .exp-row{grid-template-columns:1fr;gap:6px}
+  .exp-arrow{display:none}
+  footer{padding:22px;flex-direction:column;gap:8px;text-align:center}
+}
+/* ─ THEME TOGGLE ─ */
+.theme-toggle{width:54px;height:28px;border-radius:100px;border:none;cursor:pointer;position:relative;flex-shrink:0;outline:none;background:linear-gradient(135deg,#87ceeb,#f0c040);transition:background .4s}
+[data-dark] .theme-toggle{background:linear-gradient(135deg,#1a1035,#2d1b69)}
+.theme-toggle .tt-knob{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 5px rgba(0,0,0,.3);transition:transform .3s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;justify-content:center;font-size:13px;pointer-events:none}
+[data-dark] .theme-toggle .tt-knob{transform:translateX(26px)}
+.theme-toggle .tt-stars{position:absolute;inset:0;border-radius:100px;overflow:hidden;pointer-events:none;opacity:0;transition:opacity .3s}
+[data-dark] .theme-toggle .tt-stars{opacity:1}
+.theme-toggle .tt-star{position:absolute;background:#fff;border-radius:50%}
+.theme-toggle .tt-cloud{position:absolute;right:6px;top:7px;width:16px;height:9px;border-radius:10px 10px 0 0;background:rgba(255,255,255,.6);pointer-events:none;transition:opacity .3s}
+[data-dark] .theme-toggle .tt-cloud{opacity:0}
+.theme-toggle:hover{box-shadow:0 0 0 3px rgba(128,128,128,.2)}
+/* ─ DARK MODE VARS ─ */
+[data-dark]{--cream:#120f0c;--cream2:#1c1814;--cream3:#231e19;--ink:#f0ebe3;--ink2:#c8bfb5;--ink3:#8a8078;--ink4:#5a5248;--border:#2e2920;--border2:#3a332a;--rust:#e06030;--rust-bg:#2a1810;--rust-border:#4a2a18}
+[data-dark] .proj-card{background:#1a1612}
+[data-dark] nav.stuck{background:rgba(18,15,12,.92)!important}
+[data-dark] body{background:var(--cream)}
+/* ─ HERO RIGHT — terminal card ─ */
+.hero-inner{max-width:1140px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-right{position:relative;border-radius:20px;overflow:hidden;min-height:480px;background:#0e0e10;border:1px solid rgba(255,255,255,.07);transform-style:preserve-3d;will-change:transform;transition:box-shadow .4s ease;box-shadow:0 24px 64px rgba(0,0,0,.18)}
+.hero-right:hover{box-shadow:0 32px 80px rgba(0,0,0,.28)}
+/* animated grid bg */
+.hr-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:32px 32px;animation:gridpulse 6s ease-in-out infinite;pointer-events:none}
+@keyframes gridpulse{0%,100%{opacity:.6}50%{opacity:1}}
+/* top bar */
+.hr-bar{display:flex;align-items:center;gap:8px;padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.06);position:relative;z-index:2}
+.hr-dot{width:11px;height:11px;border-radius:50%}
+.hr-dot.r{background:#ff5f57}.hr-dot.y{background:#febc2e}.hr-dot.g{background:#28c840}
+.hr-bartitle{margin-left:auto;font-size:11px;color:rgba(255,255,255,.25);letter-spacing:.06em;font-family:monospace}
+/* terminal body */
+.hr-term{padding:18px 20px 14px;font-family:'SF Mono','Fira Code',monospace;font-size:12.5px;line-height:1.75;color:#a0a0b0;position:relative;z-index:2;min-height:200px}
+.hr-line{opacity:0;transform:translateY(6px);transition:opacity .35s ease,transform .35s ease;white-space:pre}
+.hr-line.show{opacity:1;transform:none}
+.c-dim{color:rgba(255,255,255,.2)}
+.c-grn{color:#4ade80}
+.c-blu{color:#60a5fa}
+.c-yel{color:#fbbf24}
+.c-pnk{color:#f472b6}
+.c-cyn{color:#34d399}
+/* progress bar */
+.hr-prog-wrap{margin:0 20px 14px;position:relative;z-index:2}
+.hr-prog-label{display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.06em;margin-bottom:5px;font-family:monospace}
+.hr-prog-bg{height:3px;background:rgba(255,255,255,.07);border-radius:100px;overflow:hidden}
+.hr-prog-fill{height:100%;width:0%;background:linear-gradient(90deg,#4ade80,#60a5fa);border-radius:100px;transition:width .6s cubic-bezier(.4,0,.2,1)}
+/* status badges */
+.hr-badges{display:flex;flex-wrap:wrap;gap:6px;padding:14px 20px 18px;position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.05);opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease}
+.hr-badges.show{opacity:1;transform:none}
+.hr-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border-radius:100px;font-size:11px;font-weight:500;letter-spacing:.03em;border:1px solid transparent}
+.hb-stack{background:rgba(96,165,250,.1);border-color:rgba(96,165,250,.25);color:#93c5fd}
+.hb-open{background:rgba(74,222,128,.1);border-color:rgba(74,222,128,.25);color:#86efac}
+.hb-iot{background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.25);color:#fde68a}
+.hb-ai{background:rgba(244,114,182,.1);border-color:rgba(244,114,182,.25);color:#fbcfe8}
+.hb-dot{width:6px;height:6px;border-radius:50%;animation:bdot 1.8s ease-in-out infinite}
+.hb-open .hb-dot{background:#4ade80}
+.hb-stack .hb-dot{background:#60a5fa}
+.hb-iot .hb-dot{background:#fbbf24}
+.hb-ai .hb-dot{background:#f472b6}
+@keyframes bdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+@media(max-width:860px){.hero-inner{grid-template-columns:1fr}.hero-right{margin-top:32px;min-height:340px}}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <div class="tt-stars">
+      <div class="tt-star" style="width:2px;height:2px;top:6px;left:9px"></div>
+      <div class="tt-star" style="width:2px;height:2px;top:14px;left:16px"></div>
+      <div class="tt-star" style="width:1.5px;height:1.5px;top:8px;left:24px"></div>
+      <div class="tt-star" style="width:1.5px;height:1.5px;top:18px;left:7px"></div>
+    </div>
+    <div class="tt-cloud"></div>
+    <div class="tt-knob" id="tt-knob">☀️</div>
+  </button>
+  <a href="#hero" class="nav-name">Aman<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#contact-sec" class="nav-btn">Hire me</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+  <div class="hero-left">
+    <div class="hero-pill reveal"><span class="dot"></span> Open to opportunities — B.Tech CSE, 2027</div>
+
+    <p class="hero-quote reveal reveal-d1">"I build things that work, scale, and matter."</p>
+
+    <h1 class="hero-title reveal reveal-d2">
+      <div>Full-Stack</div>
+      <div class="muted">Developer</div>
+      <div class="italic">&amp; Builder</div>
+    </h1>
+
+    <div class="hero-row reveal reveal-d3">
+      <p class="hero-desc">
+        I'm Aman Gupta — a Computer Science student at UCER Prayagraj with hands-on experience in full-stack apps, IoT systems, and AI automation. I love building things that solve real problems.<br><br>
+        <a href="mailto:amangupta7203@gmail.com">amangupta7203@gmail.com</a> &nbsp;·&nbsp; Prayagraj, UP
+      </p>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-n">3</div>
+          <div class="stat-l">Major projects</div>
+        </div>
+        <div>
+          <div class="stat-n">Top 10</div>
+          <div class="stat-l">IIT Bombay Techfest</div>
+        </div>
+        <div>
+          <div class="stat-n">7.0</div>
+          <div class="stat-l">CGPA (5th sem)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO RIGHT — live terminal card -->
+  <div class="hero-right reveal reveal-d2" id="hero-right">
+    <div class="hr-grid"></div>
+    <div class="hr-bar">
+      <div class="hr-dot r"></div><div class="hr-dot y"></div><div class="hr-dot g"></div>
+      <span class="hr-bartitle">aman@dev ~ portfolio</span>
+    </div>
+    <div class="hr-term" id="hr-term"></div>
+    <div class="hr-prog-wrap">
+      <div class="hr-prog-label"><span id="hr-plabel">initializing...</span><span id="hr-ppct">0%</span></div>
+      <div class="hr-prog-bg"><div class="hr-prog-fill" id="hr-pfill"></div></div>
+    </div>
+    <div class="hr-badges" id="hr-badges">
+      <span class="hr-badge hb-stack"><span class="hb-dot"></span>Full-Stack</span>
+      <span class="hr-badge hb-open"><span class="hb-dot"></span>Open to work</span>
+      <span class="hr-badge hb-iot"><span class="hb-dot"></span>IoT · ESP32</span>
+      <span class="hr-badge hb-ai"><span class="hb-dot"></span>AI Automation</span>
+    </div>
+  </div>
+
+  </div>
+</section>
+
+<!-- RIBBON -->
+<div class="ribbon">
+  <div class="ribbon-track" id="ribbon">
+    <div class="ribbon-item">React <span class="sep">✦</span></div>
+    <div class="ribbon-item">Node.js <span class="sep">✦</span></div>
+    <div class="ribbon-item">Python <span class="sep">✦</span></div>
+    <div class="ribbon-item">Firebase <span class="sep">✦</span></div>
+    <div class="ribbon-item">Supabase <span class="sep">✦</span></div>
+    <div class="ribbon-item">ESP32 / IoT <span class="sep">✦</span></div>
+    <div class="ribbon-item">Gemini API <span class="sep">✦</span></div>
+    <div class="ribbon-item">Tailwind CSS <span class="sep">✦</span></div>
+    <div class="ribbon-item">Java <span class="sep">✦</span></div>
+    <div class="ribbon-item">SQL <span class="sep">✦</span></div>
+    <div class="ribbon-item">Git / GitHub <span class="sep">✦</span></div>
+    <div class="ribbon-item">React <span class="sep">✦</span></div>
+    <div class="ribbon-item">Node.js <span class="sep">✦</span></div>
+    <div class="ribbon-item">Python <span class="sep">✦</span></div>
+    <div class="ribbon-item">Firebase <span class="sep">✦</span></div>
+    <div class="ribbon-item">Supabase <span class="sep">✦</span></div>
+    <div class="ribbon-item">ESP32 / IoT <span class="sep">✦</span></div>
+    <div class="ribbon-item">Gemini API <span class="sep">✦</span></div>
+    <div class="ribbon-item">Tailwind CSS <span class="sep">✦</span></div>
+    <div class="ribbon-item">Java <span class="sep">✦</span></div>
+    <div class="ribbon-item">SQL <span class="sep">✦</span></div>
+    <div class="ribbon-item">Git / GitHub <span class="sep">✦</span></div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="section" id="projects">
+  <div class="sec-label reveal">Selected Projects</div>
+  <h2 class="sec-title reveal">Things I've Built</h2>
+
+  <div class="proj-grid">
+
+    <!-- Arohan — large -->
+    <div class="proj-card span2 reveal">
+      <div class="proj-arrow">↗</div>
+      <div class="proj-badge">IoT · AI · Hardware</div>
+      <div class="proj-thumb t-arohan">AROHAN</div>
+      <div class="proj-info">
+        <div class="proj-tag">Autonomous Safety System · 2024</div>
+        <div class="proj-name">Arohan — Autonomous Campus Safety System</div>
+        <div class="proj-desc">Designed an autonomous rover integrating MPU6050 gyroscope with a proportional (P) controller for stable trajectory during real-time hazard verification. Built a sensor data pipeline using ESP32 Wi-Fi to Firebase with weighted hazard scoring (0–100) using multi-sensor fusion — MQ-135, MQ-2, Temperature — for automatic zone classification (Safe / Warning / Danger). Achieved <strong>8.4s average response latency</strong>, reducing manual verification delay by <strong>90%</strong>.</div>
+        <div class="proj-tags">
+          <span class="tech-pill">ESP32</span><span class="tech-pill">Firebase</span><span class="tech-pill">MPU6050</span><span class="tech-pill">IoT</span><span class="tech-pill">Python</span><span class="tech-pill">Sensor Fusion</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
+          <div class="achievement">🏆 Finalist — IIT Bombay Techfest 2025</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EcoBin -->
+    <div class="proj-card reveal reveal-d1">
+      <div class="proj-arrow">↗</div>
+      <div class="proj-badge">IoT · Android</div>
+      <div class="proj-thumb t-ecobin">ECOBIN</div>
+      <div class="proj-info">
+        <div class="proj-tag">Smart Waste Management · 2024</div>
+        <div class="proj-name">EcoBin — IoT Smart Waste System</div>
+        <div class="proj-desc">End-to-end IoT solution with real-time admin dashboard (JavaScript + Firebase) for live bin data visualization. Companion Android app with GPS-based optimized collection routes for workers.</div>
+        <div class="proj-tags">
+          <span class="tech-pill">JavaScript</span><span class="tech-pill">Firebase</span><span class="tech-pill">Android</span><span class="tech-pill">GPS</span><span class="tech-pill">IoT</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MailExtracto -->
+    <div class="proj-card reveal reveal-d2">
+      <div class="proj-arrow">↗</div>
+      <div class="proj-badge">AI · Automation</div>
+      <div class="proj-thumb t-mail">MAIL<br>EXTRACTO</div>
+      <div class="proj-info">
+        <div class="proj-tag">Intelligent Automation · 2024</div>
+        <div class="proj-name">MailExtracto — Intelligent Automation Bot</div>
+        <div class="proj-desc">Automation pipeline using Datamatics TruBot and TruCap+ to extract structured data from emails and eliminate manual data entry.</div>
+        <div class="proj-tags">
+          <span class="tech-pill">TruBot</span><span class="tech-pill">TruCap+</span><span class="tech-pill">Automation</span><span class="tech-pill">RPA</span>
+        </div>
+        <div class="achievement">🏆 Top 10 Team — IIT Bombay Techfest 2024</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<div class="section" id="skills">
+  <div class="sec-label reveal">What I work with</div>
+  <h2 class="sec-title reveal">Skill Areas</h2>
+
+  <div class="skills-wrap reveal">
+    <div class="skill-box">
+      <div class="sk-num">01</div>
+      <div class="sk-icon">🖥️</div>
+      <div class="sk-name">Frontend Development</div>
+      <p class="sk-desc">Building fast, responsive, and visually clean UIs with modern tooling.</p>
+      <div class="sk-list">
+        <span class="sk-tag">React</span><span class="sk-tag">Tailwind CSS</span><span class="sk-tag">HTML5 / CSS3</span><span class="sk-tag">React Router</span>
+      </div>
+    </div>
+    <div class="skill-box">
+      <div class="sk-num">02</div>
+      <div class="sk-icon">⚙️</div>
+      <div class="sk-name">Backend &amp; APIs</div>
+      <p class="sk-desc">Server-side logic, RESTful APIs, and AI integration for production applications.</p>
+      <div class="sk-list">
+        <span class="sk-tag">Node.js</span><span class="sk-tag">Gemini API</span><span class="sk-tag">Python</span><span class="sk-tag">Java</span>
+      </div>
+    </div>
+    <div class="skill-box">
+      <div class="sk-num">03</div>
+      <div class="sk-icon">🗄️</div>
+      <div class="sk-name">Databases &amp; Platforms</div>
+      <p class="sk-desc">Storing and querying data efficiently across relational and real-time databases.</p>
+      <div class="sk-list">
+        <span class="sk-tag">Supabase (Postgres)</span><span class="sk-tag">Firebase</span><span class="sk-tag">SQL</span>
+      </div>
+    </div>
+    <div class="skill-box">
+      <div class="sk-num">04</div>
+      <div class="sk-icon">📡</div>
+      <div class="sk-name">IoT &amp; Hardware</div>
+      <p class="sk-desc">Bridging physical sensors with cloud data pipelines for real-world automation.</p>
+      <div class="sk-list">
+        <span class="sk-tag">ESP32</span><span class="sk-tag">MPU6050</span><span class="sk-tag">MQ-135 / MQ-2</span><span class="sk-tag">Sensor Fusion</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<div class="section" id="about">
+  <div class="about-wrap">
+    <div class="about-img-col reveal">
+      <div class="about-photo">
+        <div class="photo-init">AG</div>
+      </div>
+      <div class="about-badge">
+        <strong>B.Tech</strong>
+        CSE · 2027
+      </div>
+    </div>
+    <div class="about-txt reveal reveal-d1">
+      <div class="sec-label">About me</div>
+      <h2 class="sec-title" style="font-size:40px;margin-bottom:18px">I build with purpose</h2>
+      <p class="about-bio">
+        I'm Aman Gupta, a second-year Computer Science Engineering student at United College of Engineering and Research, Prayagraj. I'm a results-oriented developer who loves building full-stack applications that solve real-world problems.<br><br>
+        From autonomous IoT rovers to AI-powered automation bots, I've shipped projects that span hardware, backend, and frontend — and I've had the privilege of earning a Top 10 recognition at IIT Bombay Techfest 2024 along the way.<br><br>
+        I'm currently looking for a Software Developer internship or role where I can contribute, learn, and grow fast.
+      </p>
+      <div class="about-detail">
+        <div class="adet"><strong>Location</strong> Prayagraj, Uttar Pradesh</div>
+        <div class="adet"><strong>Phone</strong> +91 8052604654</div>
+        <div class="adet"><strong>Education</strong> B.Tech CSE, UCER Prayagraj (2023–2027)</div>
+        <div class="adet"><strong>CGPA</strong> 7.0 / 10 (till 5th Sem)</div>
+      </div>
+      <a href="mailto:amangupta7203@gmail.com" class="ctabtn">Get in touch</a>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<div class="section" id="experience">
+  <div class="sec-label reveal">My journey</div>
+  <h2 class="sec-title reveal">Experience &amp; Education</h2>
+
+  <ul class="exp-list">
+    <li class="exp-row reveal">
+      <div class="exp-yr">2024</div>
+      <div>
+        <div class="exp-role">Project Tech Lead</div>
+        <div class="exp-org">Full Waste Management System</div>
+        <p class="exp-info">Coordinated development of a 3-part end-to-end IoT waste management system — spanning hardware integration, real-time dashboard, and mobile app.</p>
+      </div>
+      <div class="exp-arrow">↗</div>
+    </li>
+    <li class="exp-row reveal reveal-d1">
+      <div class="exp-yr">2024</div>
+      <div>
+        <div class="exp-role">Top 10 Team Recognition</div>
+        <div class="exp-org">IIT Bombay Techfest 2024</div>
+        <p class="exp-info">Built MailExtracto — an intelligent automation bot — and competed among top teams from across India to earn a Top 10 spot at one of Asia's largest tech festivals.</p>
+      </div>
+      <div class="exp-arrow">↗</div>
+    </li>
+    <li class="exp-row reveal reveal-d2">
+      <div class="exp-yr">2023–2027</div>
+      <div>
+        <div class="exp-role">B.Tech — Computer Science Engineering</div>
+        <div class="exp-org">United College of Engineering and Research, Prayagraj</div>
+        <p class="exp-info">CGPA: 7.0/10 through 5th semester. Focusing on data structures, systems design, and applied software engineering.</p>
+      </div>
+      <div class="exp-arrow">↗</div>
+    </li>
+    <li class="exp-row reveal reveal-d3">
+      <div class="exp-yr">2021–2022</div>
+      <div>
+        <div class="exp-role">Senior Secondary (CBSE)</div>
+        <div class="exp-org">Allahabad Public School, Prayagraj</div>
+        <p class="exp-info">Scored 80.6% — built a strong foundation in mathematics, physics, and computer science.</p>
+      </div>
+      <div class="exp-arrow">↗</div>
+    </li>
+  </ul>
+</div>
+
+<hr class="divider">
+
+<!-- FAQ — Stelvio style -->
+<div class="section" id="faq">
+  <div class="sec-label reveal">Common questions</div>
+  <h2 class="sec-title reveal">Questions &amp; Answers</h2>
+
+  <ul class="faq-list reveal">
+    <li class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What kind of roles are you looking for? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>I'm looking for Software Developer internships or full-time roles with a focus on full-stack web development, backend systems, or IoT/AI applications. I'm open to both product companies and startups where I can contribute meaningfully from day one.</p></div>
+    </li>
+    <li class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What's your strongest tech stack? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>My strongest area is full-stack JavaScript — React on the frontend, Node.js on the backend, with Supabase or Firebase as the database. I'm also comfortable with Python for scripting and AI integration, and I have hands-on experience with IoT hardware (ESP32, sensor modules).</p></div>
+    </li>
+    <li class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Tell me about the IIT Bombay Techfest achievement. <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>My team built MailExtracto — an intelligent RPA bot using Datamatics TruBot and TruCap+ to automatically extract structured data from emails, eliminating manual data entry. We were recognised as a Top 10 Team at IIT Bombay Techfest 2024, competing against teams from universities across India.</p></div>
+    </li>
+    <li class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Are you available for freelance or collaborative projects? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>Yes! I'm open to freelance web development projects, open-source collaborations, and hackathon teams. If you have an interesting problem to solve, feel free to reach out at amangupta7203@gmail.com.</p></div>
+    </li>
+    <li class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What's your approach to building software? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>I start with the problem, not the technology. I try to understand the real-world impact first — then choose the simplest stack that solves it reliably. I care deeply about performance, clean code, and shipping things that actually work end-to-end.</p></div>
+    </li>
+  </ul>
+</div>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<div class="section" id="contact-sec">
+  <div class="reveal">
+    <div class="contact-pill"><span class="dot"></span> Available for opportunities</div>
+    <h2 class="contact-hl">Let's build<br>something <em>real</em></h2>
+    <p class="contact-sub">Have a project, internship, or role in mind? I'd love to hear from you. Let's make something great.</p>
+    <a href="mailto:amangupta7203@gmail.com" class="contact-email">amangupta7203@gmail.com</a>
+    <div class="contact-links">
+      <a href="https://linkedin.com/in/amangdev" target="_blank" class="contact-link">LinkedIn</a>
+      <a href="https://github.com/amangdev" target="_blank" class="contact-link">GitHub</a>
+      <a href="https://drive.google.com/file/d/YOUR_FILE_ID/view" target="_blank" class="contact-link">Resume ↗</a>
+      <a href="tel:+918052604654" class="contact-link">+91 8052604654</a>
+      <a href="#projects" class="contact-link">View Projects</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="ft">© 2024 Aman Gupta · Prayagraj, UP</span>
+  <span class="ft">B.Tech CSE · UCER · 2023–2027</span>
+</footer>
+
+<script>
+const cur = document.getElementById('cur');
+document.addEventListener('mousemove', e => {
+  cur.style.left = e.clientX + 'px';
+  cur.style.top = e.clientY + 'px';
+});
+document.querySelectorAll('a,button,.proj-card,.skill-box,.faq-q,.exp-row').forEach(el => {
+  el.addEventListener('mouseenter', () => cur.classList.add('big'));
+  el.addEventListener('mouseleave', () => cur.classList.remove('big'));
+});
+
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('stuck', scrollY > 40));
+
+const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('on'); }), {threshold: 0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+// ─ Hero right — terminal card ─
+(function(){
+  const term = document.getElementById('hr-term');
+  const fill = document.getElementById('hr-pfill');
+  const plabel = document.getElementById('hr-plabel');
+  const ppct = document.getElementById('hr-ppct');
+  const badges = document.getElementById('hr-badges');
+  const card = document.getElementById('hero-right');
+
+  const lines = [
+    {html:`<span class="c-dim">$ </span><span class="c-grn">whoami</span>`,delay:0},
+    {html:`<span class="c-cyn">→ Aman Gupta</span> <span class="c-dim">// UCER · CSE · 2027</span>`,delay:420},
+    {html:`<span class="c-dim">$ </span><span class="c-grn">cat</span> <span class="c-blu">stack.json</span>`,delay:900},
+    {html:`<span class="c-dim">{</span>`,delay:1260},
+    {html:`  <span class="c-pnk">"frontend"</span><span class="c-dim">:</span> <span class="c-yel">["React","Tailwind","Vite"]</span><span class="c-dim">,</span>`,delay:1500},
+    {html:`  <span class="c-pnk">"backend"</span><span class="c-dim">:</span>  <span class="c-yel">["Node.js","Python","Supabase"]</span><span class="c-dim">,</span>`,delay:1740},
+    {html:`  <span class="c-pnk">"embedded"</span><span class="c-dim">:</span> <span class="c-yel">["ESP32","MQTT","IoT"]</span><span class="c-dim">,</span>`,delay:1980},
+    {html:`  <span class="c-pnk">"ai"</span><span class="c-dim">:</span>       <span class="c-yel">["Gemini API","automation"]</span>`,delay:2220},
+    {html:`<span class="c-dim">}</span>`,delay:2460},
+    {html:`<span class="c-dim">$ </span><span class="c-grn">git log</span> <span class="c-dim">--oneline -3</span>`,delay:2900},
+    {html:`<span class="c-blu">a3f19c2</span> <span class="c-dim">90% latency cut — Arohan backend</span>`,delay:3180},
+    {html:`<span class="c-blu">7d82e01</span> <span class="c-dim">IIT Bombay Techfest — Top 10</span>`,delay:3420},
+    {html:`<span class="c-blu">2b4fa88</span> <span class="c-dim">EcoBin: smart waste IoT system</span>`,delay:3660},
+    {html:`<span class="c-dim">$ </span><span class="c-grn">npm run</span> <span class="c-yel">hire-me</span>`,delay:4100},
+    {html:`<span class="c-grn">✓ Ready.</span> <span class="c-dim">amangupta7203@gmail.com</span>`,delay:4500},
+  ];
+
+  const progSteps = [
+    {at:900, pct:20, label:'loading stack...'},
+    {at:2460, pct:55, label:'parsing projects...'},
+    {at:3660, pct:80, label:'compiling experience...'},
+    {at:4500, pct:100, label:'build complete'},
+  ];
+
+  lines.forEach(({html, delay}) => {
+    const div = document.createElement('div');
+    div.className = 'hr-line';
+    div.innerHTML = html;
+    term.appendChild(div);
+    setTimeout(() => div.classList.add('show'), delay + 800);
+  });
+
+  progSteps.forEach(({at, pct, label}) => {
+    setTimeout(() => {
+      fill.style.width = pct + '%';
+      plabel.textContent = label;
+      ppct.textContent = pct + '%';
+      if(pct === 100) setTimeout(() => badges.classList.add('show'), 300);
+    }, at + 800);
+  });
+
+  // 3D tilt on mouse move — smooth with lerp
+  let tx = 0, ty = 0, cx = 0, cy = 0, raf;
+  function lerp(a,b,t){return a+(b-a)*t}
+  function tick(){
+    cx = lerp(cx, tx, 0.09);
+    cy = lerp(cy, ty, 0.09);
+    card.style.transform = `perspective(900px) rotateY(${cx}deg) rotateX(${cy}deg) scale(1.01)`;
+    raf = requestAnimationFrame(tick);
+  }
+  card.addEventListener('mouseenter', () => { tick(); });
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const mx = (e.clientX - r.left) / r.width - 0.5;
+    const my = (e.clientY - r.top)  / r.height - 0.5;
+    tx = mx * 10;
+    ty = -my * 8;
+  });
+  card.addEventListener('mouseleave', () => {
+    tx = 0; ty = 0;
+    setTimeout(() => { cancelAnimationFrame(raf); card.style.transform = ''; }, 600);
+  });
+})();
+const themeToggle=document.getElementById('theme-toggle'),ttKnob=document.getElementById('tt-knob'),root=document.documentElement;
+function applyTheme(d){d?root.setAttribute('data-dark',''):root.removeAttribute('data-dark');ttKnob.textContent=d?'🌙':'☀️';}
+applyTheme(localStorage.getItem('theme')==='dark');
+themeToggle.addEventListener('click',()=>{const d=root.hasAttribute('data-dark');applyTheme(!d);localStorage.setItem('theme',d?'light':'dark');});
+</script>
+</body>
+</html>

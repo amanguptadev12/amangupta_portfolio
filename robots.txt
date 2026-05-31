@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amangdevportfolio.vercel.app/sitemap.xml
