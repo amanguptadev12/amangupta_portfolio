@@ -289,6 +289,21 @@ footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify
 .hb-ai .hb-dot{background:#f472b6}
 @keyframes bdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
 @media(max-width:860px){.hero-inner{grid-template-columns:1fr}.hero-right{margin-top:32px;min-height:340px}}
+/* ── CONTACT FORM ── */
+.cf-wrap{margin-top:40px;text-align:left;max-width:520px;margin-left:auto;margin-right:auto}
+.cf-group{margin-bottom:18px}
+.cf-label{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:7px;font-weight:500}
+.cf-input{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:13px 16px;font-family:var(--font-sans);font-size:14px;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s}
+.cf-input:focus{border-color:var(--rust);box-shadow:0 0 0 3px var(--rust-bg)}
+.cf-input::placeholder{color:var(--ink4)}
+textarea.cf-input{resize:vertical;min-height:120px}
+.cf-btn{width:100%;background:var(--rust);color:#fff;border:none;border-radius:12px;padding:14px;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;letter-spacing:.03em;transition:opacity .2s,transform .2s;margin-top:4px}
+.cf-btn:hover{opacity:.88;transform:translateY(-1px)}
+.cf-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.cf-status{margin-top:14px;text-align:center;font-size:14px;font-weight:500;min-height:20px}
+.cf-status.ok{color:#2d7a3a}
+.cf-status.err{color:#c0392b}
+
 </style>
 </head>
 <body>
@@ -628,6 +643,24 @@ footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify
     <h2 class="contact-hl">Let's build<br>something <em>real</em></h2>
     <p class="contact-sub">Have a project, internship, or role in mind? I'd love to hear from you. Let's make something great.</p>
     <a href="mailto:amangupta7203@gmail.com" class="contact-email">amangupta7203@gmail.com</a>
+    <div class="cf-wrap">
+  <form id="cf-form" action="https://formspree.io/f/meedwbdb" method="POST">
+    <div class="cf-group">
+      <label class="cf-label" for="cf-name">Name</label>
+      <input class="cf-input" id="cf-name" name="name" type="text" placeholder="Your name" required>
+    </div>
+    <div class="cf-group">
+      <label class="cf-label" for="cf-email">Email</label>
+      <input class="cf-input" id="cf-email" name="email" type="email" placeholder="your@email.com" required>
+    </div>
+    <div class="cf-group">
+      <label class="cf-label" for="cf-msg">Message</label>
+      <textarea class="cf-input" id="cf-msg" name="message" placeholder="Tell me about your project or opportunity…" required></textarea>
+    </div>
+    <button class="cf-btn" id="cf-btn" type="submit">Send Message →</button>
+    <div class="cf-status" id="cf-status"></div>
+  </form>
+</div>
     <div class="contact-links">
       <a href="https://linkedin.com/in/amangdev" target="_blank" class="contact-link">LinkedIn</a>
       <a href="https://github.com/amangdev" target="_blank" class="contact-link">GitHub</a>
@@ -743,6 +776,34 @@ const themeToggle=document.getElementById('theme-toggle'),ttKnob=document.getEle
 function applyTheme(d){d?root.setAttribute('data-dark',''):root.removeAttribute('data-dark');ttKnob.textContent=d?'🌙':'☀️';}
 applyTheme(localStorage.getItem('theme')==='dark');
 themeToggle.addEventListener('click',()=>{const d=root.hasAttribute('data-dark');applyTheme(!d);localStorage.setItem('theme',d?'light':'dark');});
+document.getElementById('cf-form').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=document.getElementById('cf-btn');
+  const status=document.getElementById('cf-status');
+
+  btn.disabled=true;
+  btn.textContent='Sending…';
+  status.textContent='';
+
+  const res=await fetch(this.action,{
+    method:'POST',
+    body:new FormData(this),
+    headers:{'Accept':'application/json'}
+  });
+
+  if(res.ok){
+    status.textContent="Message sent! I'll get back to you soon.";
+    status.className='cf-status ok';
+    btn.textContent='Sent ✓';
+    this.reset();
+    setTimeout(()=>{btn.disabled=false;btn.textContent='Send Message →';},4000);
+  } else {
+    status.textContent='Something went wrong. Email me directly instead.';
+    status.className='cf-status err';
+    btn.disabled=false;
+    btn.textContent='Send Message →';
+  }
+});
 </script>
 </body>
 </html>
