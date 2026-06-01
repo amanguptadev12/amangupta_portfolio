@@ -1,4 +1,4 @@
-# 🧑‍💻 Aman Gupta — Developer Portfolio
+ # 🧑‍💻 Aman Gupta — Developer Portfolio
 
 > A single-page personal portfolio website built with pure HTML, CSS, and vanilla JavaScript. No frameworks, no build tools, no dependencies — just clean, fast, hand-crafted code.
 
