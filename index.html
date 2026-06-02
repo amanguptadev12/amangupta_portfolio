@@ -735,6 +735,9 @@ textarea.cf-input{resize:vertical;min-height:120px}
 </footer>
 
 <script>
+  // scroll to top on every page load/refresh
+if('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
 if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
   const cur=document.getElementById('cur');
   document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px'});
